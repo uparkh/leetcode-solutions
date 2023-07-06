@@ -4,7 +4,7 @@ My leetcode solutions, updated as I do them (mostly in Python). My thought proce
 My language of choice was Python because it abstracts away the lower level details that are inherent to some other languages, and helps me focus on the algorithm design rather than the aforementioned small details.
 
 ### When solving these problems, I kept these rules in mind:
-- Spend no more than 30 minutes on Easy problems, no mor than 45 minutes on Medium problems, and no more than 1 hour on Hard problems. Once that threshold was crossed, unless I could feel the solution was in sight, I stopped right there and began to try to understand the solution. This prevents me from banging my head against the wall 🙃, and helps me actually learn a way to solve the problem I would not have figured out on my own.
+- Spend no more than 30 minutes on Easy problems, no more than 45 minutes on Medium problems, and no more than 1 hour on Hard problems. Once that threshold was crossed, unless I could feel the solution was in sight, I stopped right there and began to try to understand the solution. This prevents me from banging my head against the wall 🙃, and helps me actually learn a way to solve the problem I would not have figured out on my own.
 
 - I spent the 15 minutes after I either completed the problem, or failed at it, to see the video solutions provided by NeetCode, or other code solutions, to understand other perspectives on solving the problems. These are noted down as well.
 
