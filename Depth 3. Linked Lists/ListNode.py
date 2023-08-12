@@ -1,18 +1,22 @@
+from typing import Self
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
     
-    def build_from_list(self, nums: list[int]):
-        curr = self
-        prev = None
+    @staticmethod
+    def build_from_list(nums: list[int]) -> Self | None:
+        dummy = ListNode()
+        curr = dummy
+        # prev = None
         for n in nums:
-            curr.val = n
-            curr.next = ListNode()
-            prev = curr
+            curr.next = ListNode(n)
+            # curr.next = ListNode()
+            # prev = curr
             curr = curr.next
-        prev.next = None
+        # prev.next = None
+        return dummy.next
     
     def __str__(self):
         res = "["

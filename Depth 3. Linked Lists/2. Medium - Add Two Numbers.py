@@ -72,7 +72,28 @@ class Solution:
 # an entirely new list without changing the original lists at all. Of course since he creates
 # new memory and it's a simpler structure to follow (if-else max depth of 1 in the while loop),
 # his solution beats 4% more of solutions, but memory-wise only beats 31.15.
+class NeetCodeSolution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        dummy = ListNode()
+        cur = dummy
 
+        carry = 0
+        while l1 or l2 or carry:
+            v1 = l1.val if l1 else 0
+            v2 = l2.val if l2 else 0
+
+            # new digit
+            val = v1 + v2 + carry
+            carry = val // 10
+            val = val % 10
+            cur.next = ListNode(val)
+
+            # update ptrs
+            cur = cur.next
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
+
+        return dummy.next
 
 l1, l2 = ListNode(), ListNode()
 l1.build_from_list([2, 3, 3, 9])
