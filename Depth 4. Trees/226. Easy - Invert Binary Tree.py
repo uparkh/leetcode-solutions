@@ -1,6 +1,6 @@
 # TOTAL TIME: 16m, 14s
 
-# My Original Solution - O(n) runtime, O(1) space
+# My Original Solution - O(n) runtime, O(log n) space
 # Using iterative pre-order traversal/DFS
 
 # Definition for a binary tree node.
