@@ -4,7 +4,7 @@ using namespace std;
 
 // My Original Solution - O(n) time for required operations
 // Unordered maps are really slow, but at least the solution worked.
-class NeetCodeTrie {
+class Trie {
 private:
     struct TrieNode {
         char val;
@@ -19,7 +19,7 @@ private:
 
     TrieNode root;
 public:
-    NeetCodeTrie() {
+    Trie() {
     }
     
     void insert(string word) {
