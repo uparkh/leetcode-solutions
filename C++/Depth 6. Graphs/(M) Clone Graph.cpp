@@ -105,7 +105,7 @@ public:
             q.pop();
             
             for (Node* neighbor : curr->neighbors) {
-                if (m.contains(neighbor)) {
+                if (!m.contains(neighbor)) {
                     m[neighbor] = new Node(neighbor->val);
                     q.push(neighbor);
                 }
