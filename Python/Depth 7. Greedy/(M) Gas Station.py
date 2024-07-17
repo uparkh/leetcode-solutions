@@ -39,11 +39,15 @@ class NeetCodeSolution:
         total = gas[start] - cost[start]
 
         while start >= end:
+            # shift left as long as negative fuel, only start at positive net
+            # fuel; if start < end, no cycle possible
             while total < 0 and start >= end:
                 start -= 1
                 total += gas[start] - cost[start]
             if start == end:
                 return start
+
+            # shift right until it meets start, expand left while looping
             total += gas[end] - cost[end]
             end += 1
         return -1
