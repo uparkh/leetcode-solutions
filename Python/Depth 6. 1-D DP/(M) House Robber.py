@@ -24,6 +24,10 @@ class Solution:
 
 
 # NeetCode Solution
+# Note that the comment explaining the vars really just boils down to
+# this recurrence relation:
+# max_rob = max( arr[0] + arr[2:n], arr[1:n])
+#        "rob this first house"      "or skip it for the remaining houses?"
 class NeetCodeSolution:
     def rob(self, nums: List[int]) -> int:
         rob1, rob2 = 0, 0
