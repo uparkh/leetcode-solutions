@@ -1,4 +1,5 @@
 from typing import List
+from collections import defaultdict
 
 # My Original Solution -- 21 minutes
 # Time -- O(n * sum(nums))
@@ -48,3 +49,28 @@ class NeetCodeSolution:
 # it. I thought this would be exponential time, but I have to remember
 # that iterating through a triangularly growing list is still O(n^2)
 # since 1 + 2 + 3 + ... + n-1 + n == n(n+1)/2
+
+# Hi, big fan here. I solved this problem in a different way and it runs 
+# quite efficiently. I just use a dictionary (initialized with 1 zero so that
+# the first number in the nums array has something to compare against) and
+# iterate over the nums array, and then I use another dictionary to store all
+# the ways the numbers in the dp dictionary, "n", can change given the number
+# from the nums array, "new_dp[n+/-num]", while keeping track of how many ways
+# that new number can be made "dp[n]". Then all you have to do is return
+# dp[target] since it holds how many ways that number can be achieved.
+class IbbySolution:
+    def findTargetSumWays(self, nums, target):
+        dp = defaultdict(int)
+        dp[0] = 1
+
+
+        for num in nums:
+            new_dp = defaultdict(int)
+            for n in dp:
+                new_dp[n+num] += dp[n]
+                new_dp[n-num] += dp[n]
+
+            dp = new_dp
+
+
+        return dp[target]
