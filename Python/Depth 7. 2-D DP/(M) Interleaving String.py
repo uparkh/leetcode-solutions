@@ -61,3 +61,31 @@ class DPSolution:
 
         return dp[-1] == len(s3) - 1
 
+
+# NeetCode Solution
+# Time and Space: (s1.length * s2.length)
+# So his is a cleaner solution, and instead of tracking the furthest
+# possible index maintainable, he just tracks True or False if the incoming
+# nodes are solved (True), whereas I was using -1 for a False value
+# and >= 0 for a True. You can simply just use the sum of the i and j
+# index iterations to see where you're at in s3. He also iterates from
+# bottom right to top left.
+# Fundamentally the DP ideas are the same, his solution is just cleaner.
+# More importantly: I got the optimal runtime and memory, which is what
+# matters.
+class NeetCodeSolution:
+    def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
+        if len(s1) + len(s2) != len(s3):
+            return False
+
+        dp = [[False] * (len(s2) + 1) for _ in range(len(s1) + 1)]
+        dp[len(s1)][len(s2)] = True
+
+        for i in range(len(s1), -1, -1):
+            for j in range(len(s2), -1, -1):
+                if i < len(s1) and s1[i] == s3[i + j] and dp[i + 1][j]:
+                    dp[i][j] = True
+                if j < len(s2) and s2[j] == s3[i + j] and dp[i][j + 1]:
+                    dp[i][j] = True
+        return dp[0][0]
+
