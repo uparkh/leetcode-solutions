@@ -1,3 +1,8 @@
+from typing import List
+from collections import defaultdict
+import heapq
+
+
 # My Original Solution -- 12 minutes
 # Direct application of immediately learning Dijkstra's
 # Time -- O(E * log(V))
@@ -7,7 +12,7 @@ class Solution:
         adj = defaultdict(list)
         for u, v, w in times:
             adj[u].append((w, v))
-            
+
         min_heap = [(0, k)]
         travel_times = {}
 
@@ -19,15 +24,16 @@ class Solution:
             for w2, n2 in adj[n1]:
                 if n2 not in travel_times:
                     heapq.heappush(min_heap, (w1 + w2, n2))
-        
+
         return max(travel_times.values()) if len(travel_times) == n else -1
+
 
 # NeetCode Solution
 # Clever small optimization, min heap guarantees finding the max
 # travel time, can just track this info in another variable.
 class NeetCodeSolution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        edges = collections.defaultdict(list)
+        edges = defaultdict(list)
         for u, v, w in times:
             edges[u].append((v, w))
 

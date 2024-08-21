@@ -1,6 +1,7 @@
 from typing import List
 import heapq
 
+
 # My Original Solution -- 30 minutes
 # Time -- O(n^2 * log(n))
 # Space -- O(n^2)
@@ -12,6 +13,7 @@ class Solution:
         min_heap = [(grid[0][0], 0, 0)]  # (elevation, i, j)
         n = len(grid)
         visited = {}  # (i, j) -> min elevation to reach that pt
+
         def bounded(x, y):
             return 0 <= x < n and 0 <= y < n
 
@@ -33,13 +35,14 @@ class Solution:
                 if (i2, j2) not in visited:
                     e2 = grid[i2][j2]
                     heapq.heappush(min_heap, (max(e1, e2), i2, j2))
-        
+
         return visited[(n-1, n-1)]
 
+
 # NeetCode Solution
-# The fundamental idea is the same -- Dijkstra's setup, but with 
+# The fundamental idea is the same -- Dijkstra's setup, but with
 # pushing a max() of the elevations to the min heap.
-# I did experiment with a cardinal direction array to DRY out the 
+# I did experiment with a cardinal direction array to DRY out the
 # 4 `if` conditionals used. But it's not that serious, the solution works
 # with Dijkstra's, and that's what matters more.
 # I do really like the naming of the directions -- like in calculus with dr, dc
@@ -68,6 +71,4 @@ class NeetCodeSolution:
                     continue
                 visit.add((neiR, neiC))
                 heapq.heappush(minH, [max(t, grid[neiR][neiC]), neiR, neiC])
-
         return -1
-
